@@ -58,7 +58,3 @@ app.delete("/api/notes/:id", (req, res) => {
     })
 })
 
-
-app.delete(`/api/notes/del/:id`, (req, res) => {
-    console.log('Delete gotten');
-});
