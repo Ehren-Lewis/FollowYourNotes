@@ -40,3 +40,25 @@ app.post("/api/notes", (req, res) => {
     })
 
 })
+
+app.delete("/api/notes/:id", (req, res) => {
+    fs.readFile('db/db.json', 'utf-8', (err, data) => {
+        const parsedData = JSON.parse(data);
+        const deleteData = req.params.id.split(",")
+        const delTitle = deleteData[0];
+        const delText = deleteData[1];;
+        const toSendData = parsedData.filter(el => el.title != delText && el.text != delText);
+        fs.writeFile("db/db.json", JSON.stringify(toSendData), (err) => {
+            if (err) {
+                console.log(err)
+            } 
+            console.log("success");
+        })    
+        res.sendFile(path.join( __dirname, "/db/db.json"))
+    })
+})
+
+
+app.delete(`/api/notes/del/:id`, (req, res) => {
+    console.log('Delete gotten');
+});

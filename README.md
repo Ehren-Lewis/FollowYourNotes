@@ -54,12 +54,6 @@ The following images show the web application's appearance and functionality:
 
 test
 
-[
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
-]
 
 
 ## Getting Started
